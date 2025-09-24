@@ -1861,7 +1861,7 @@ Transform:
   m_GameObject: {fileID: 917774030}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.26, y: 1.9000001, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3172,11 +3172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308efff2d4595c942941069ae810d767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GetInput: {fileID: 0}
-  playerTransform: {fileID: 0}
-  nextActionTime: 0
-  dialogueNode: {fileID: 11400000, guid: f9167c30b7981ca47a832aa60b76e00f, type: 2}
-  dialogueController: {fileID: 1116652964}
 --- !u!1 &1474877840
 GameObject:
   m_ObjectHideFlags: 0

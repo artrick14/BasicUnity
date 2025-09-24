@@ -1,23 +1,25 @@
+using System;
 using UnityEngine;
 
 public class WeaponDirection : MonoBehaviour
 {
+    [SerializeField] private Camera mainCamera;
     InputSubscription GetInput;
-    Transform tran;
-    Vector2 aimDirection;
 
     void Start()
     {
         GetInput = GetComponent<InputSubscription>();
-        tran = gameObject.GetComponent<Transform>();
     }
 
 
     private void Update()
     {
-        aimDirection = new Vector2(GetInput.LookInput.x, GetInput.LookInput.y);
-        float mouseAngle = Mathf.Atan2(aimDirection.y - transform.position.y, aimDirection.x - transform.position.x) * Mathf.Rad2Deg - 90f;
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(new Vector3(GetInput.LookInput.x, GetInput.LookInput.y, mainCamera.nearClipPlane));
 
-        tran.localRotation = Quaternion.Euler(0, 0, mouseAngle);
+        Vector3 rotateDirection = (worldPosition - transform.position).normalized;
+        rotateDirection.z = 0;
+
+        float angle = Mathf.Atan2(rotateDirection.y, rotateDirection.x) * Mathf.Rad2Deg - 180f;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 }
